@@ -102,8 +102,6 @@ Void writer(Arg id_arg)
         /* enqueue message */
         MBX_post(&mbx, &msg, TIMEOUT);
 
-        LOG_printf(&trace, "(%d) writing '%c' ...", id, (Int)msg.val);
-
         /* what happens if you call TSK_yield() here? */
         TSK_yield();
     }
@@ -151,5 +149,5 @@ Void reader_counter(Void)
         LOG_printf(&trace, "[counter] '%d' from (%d).", msg.val, msg.id);
         TSK_yield();
     }
-    LOG_printf(&trace, "reader done.");
+    LOG_printf(&trace, "reader done.");    
 }
